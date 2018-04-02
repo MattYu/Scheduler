@@ -100,12 +100,54 @@ Opens input and store it in a buffer string; Close input; Get the first line of 
 
 ## Test Cases
 ### Default test
-Input: 
-3 P1 1000 2500 90 P2 2000 100 120 P3 3200 100 120
-Output: Time 1000, P1, Arrived Time 1000, P1, Started, Granted 1000 Time 2000, P2, Arrived Time 2000, P1, Paused Time 2000, P1, Resumed, Granted 1000 Time 3000, P1, Paused Time 3000, P1, Priority updated to 100 Time 3000, P2, Started, Granted 100 Time 3100, P2, Terminated Time 3100, P1, Resumed, Granted 200 Time 3200, P3, Arrived Time 3300, P1, Paused Time 3300, P1, Resumed, Granted 200 Time 3500, P1, Paused Time 3500, P1, Priority updated to 105 Time 3500, P3, Started, Granted 100 Time 3600, P3, Terminated Time 3600, P1, Resumed, Granted 175 Time 3700, P1, Terminated
+#### Input: 
+3 
+
+P1 1000 2500 90 
+
+P2 2000 100 120 
+
+P3 3200 100 120
+
+#### Output: 
+Time 1000, P1, Arrived 
+
+Time 1000, P1, Started, Granted 1000 
+
+Time 2000, P2, Arrived 
+
+Time 2000, P1, Paused 
+
+Time 2000, P1, Resumed, Granted 1000 
+
+Time 3000, P1, Paused 
+
+Time 3000, P1, Priority updated to 100 
+
+Time 3000, P2, Started, Granted 100 
+
+Time 3100, P2, Terminated 
+
+Time 3100, P1, Resumed, Granted 200 
+
+Time 3200, P3, Arrived Time 3300, P1, Paused 
+
+Time 3300, P1, Resumed, Granted 200 
+
+Time 3500, P1, Paused 
+
+Time 3500, P1, Priority updated to 105 
+
+Time 3500, P3, Started, Granted 100 
+
+Time 3600, P3, Terminated 
+
+Time 3600, P1, Resumed, Granted 175 
+
+Time 3700, P1, Terminated
 
 ### Round Robin (same priority and arrival time)
-Input: 
+#### Input: 
   3 
   
   P1 1000 200 120 
@@ -114,7 +156,7 @@ Input:
   
   P3 1000 200 120
   
-Output: 
+#### Output: 
   Time 1000, P1, Arrived 
   
   Time 1000, P2, Arrived 
@@ -141,9 +183,10 @@ Output:
 
 ### Extrema 1 (lower bound)
 
-Input: 1 P1 0 100 90
+#### Input: 
+1 P1 0 100 90
 
-Output: 
+#### Output: 
   Time 0, P1, Arrived 
   
   Time 0, P1, Started, Granted 1000 
@@ -152,6 +195,7 @@ Output:
   
 (showcase finished flag before quantum finished)
 ### Extrema 2 (upper bound)
-Input: 10 P1 0 100 90 P2 1000 1000 1 P3 1200 800 30 P4 1500 100 90 P5 2000 900 130 P6 2500 300 135 P7 3000 400 139 P8 3500 100 90 P9 3500 100 100 P10 4000 200 130
+#### Input: 
+10 P1 0 100 90 P2 1000 1000 1 P3 1200 800 30 P4 1500 100 90 P5 2000 900 130 P6 2500 300 135 P7 3000 400 139 P8 3500 100 90 P9 3500 100 100 P10 4000 200 130
 
-Output: Result omitted due to size. Test passed. 
+#### Output: Result omitted due to size. Test passed. 
