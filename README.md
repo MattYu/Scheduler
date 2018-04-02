@@ -49,28 +49,49 @@ Description:
 Description:
 
 • Linux 2.6 scheduler implementation.
+
 • Has a class Timer
+
 • Has a class Logger
+
 • Has two Priority_Array instances. One for expired queue and one for active queue
+
 • Method run_Scheduler initiate a seperate thread with "this" as parameters.
+
 • Method get_Quantum calculates the time to allocate
+
 • Method get_new_priority updates a process' priority. Is called if a process is executed twice in a row.
+
 • Method add_2_expire add a new process to expire. Is used by simulator to add new process while scheduler runs on seperate thread or by scheduler to add a paused thread to the expire queue. A semaphore protection is used: scheduler cannot switch to expire while process is being added; has to wait. And vice-versa.
+
 • Method Scheduler: Runs scheduler and is a private method: (May only be accessed via method run_Scheduler on seperate thread instance for security)
+
 Program flow Method Scheduler:
 a. Checks if current active queue is empty. If yes, flags expire queue to active queue and active queue to expire queue.
+
 b. Use Priority_Array pop method to get next thread to run.
+
 c. Get current time, popped process PID information for logging purposes. Save info in temporary.
+
 d. Compare if the above thread with previously run process info to see if it has run twice times in a row. If yes, set a flag to update priority after next quantum finish execution.
+
 e. Get current process priority.
+
 f. Calculate quantum to allocate based on priority.
+
 g. Output info to log.
+
 h. Calls on class Thread's method resume(): unblocking the thread's semaphore and resuming the thread. Note that Method resume() has built in features which differentiate if it is the first time the thread is executing or has been previously paused and resume the thread accordingly.
+
 i. A while loop uses class Timer's get elapsed_time_method, to compare current time with process resume() time logged above. loop is broken under 2 conditions: if process finished flag is set or if elapsed time is greater than the allocated quantum time slot.
 j. If process finish flag is set, logs it. Thread finished. Destructor is called.
+
 k. If not: Calls on class Thread's method pause(): blocking the running thread's semaphore and pausing the thread. Method pause also update the process' PBC info.
+
 l. If priority_update flag has been set: calls on method get_new_priority to update the process's priority.
+
 m. Calls on method add_2_expire to add process to expire queue.
+
 n. Repeat all previous steps until simulation expected end
 
 ### Main()
