@@ -107,29 +107,49 @@ Output: Time 1000, P1, Arrived Time 1000, P1, Started, Granted 1000 Time 2000, P
 ### Round Robin (same priority and arrival time)
 Input: 
   3 
+  
   P1 1000 200 120 
+  
   P2 1000 200 120 
+  
   P3 1000 200 120
+  
 Output: 
   Time 1000, P1, Arrived 
+  
   Time 1000, P2, Arrived 
+  
   Time 1000, P3, Arrived 
-  Time 1000, P1, Started, Granted 100 
+  
+  Time 1000, P1, Started, Granted 100
+  
   Time 1100, P1, Paused 
+  
   Time 1100, P2, Started, Granted 100 
+  
   Time 1200, P2, Paused 
+  
   Time 1200, P3, Started, Granted 100 
-  Time 1300, P3, Paused Time 1300, P1, Resumed, Granted 100 
+  
+  Time 1300, P3, Paused Time 1300, P1, Resumed, Granted 100
+  
   Time 1400, P1, Terminated 
+  
   Time 1400, P2, Resumed, Granted 100 
+  
   Time 1500, P2, Terminated Time 1500, P3, Resumed, Granted 100 Time 1600, P3, Terminated (Acts like Round-Robins when same priority processes)
 
 ### Extrema 1 (lower bound)
+
 Input: 1 P1 0 100 90
+
 Output: 
   Time 0, P1, Arrived 
+  
   Time 0, P1, Started, Granted 1000 
+  
   Time 100, P1, Terminated
+  
 (showcase finished flag before quantum finished)
 ### Extrema 2 (upper bound)
 Input: 10 P1 0 100 90 P2 1000 1000 1 P3 1200 800 30 P4 1500 100 90 P5 2000 900 130 P6 2500 300 135 P7 3000 400 139 P8 3500 100 90 P9 3500 100 100 P10 4000 200 130
