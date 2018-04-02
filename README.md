@@ -5,7 +5,7 @@ Simulation of Linux 2.6's O(1) scheduler, using pthread and mutext
 ## 1. OBJECTIVE
 Implementing and simulating a priority-based scheduler in a system with
 a single processor. Based on Linux 2.6 O(1) scheduler.
-## 2. PROCEDURE/DISCUSSION ( MAY INCLUDE BELOW POINTS)
+## 2. PROCEDURE/DISCUSSION
 ### Overview
 O(1) real time Scheduler similator based on linux 2.6's scheduler.
 Takes mock process data from input file pbs_input.txt
