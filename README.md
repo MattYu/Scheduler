@@ -1,6 +1,7 @@
 # Scheduler
 Simulation of Linux 2.6's O(1) scheduler, using pthread and mutext
 
+Important notice: the code is intended to run on Linux Virtual Machine for demonstration purpose. As such, I have not implemented memory deallocated: Please use a virtual machine (e.g. Virtual box) if you intend to try it out yourself, otherwise you may experience some memory leakage.
 
 ## 1. OBJECTIVE
 Implementing and simulating a priority-based scheduler in a system with
